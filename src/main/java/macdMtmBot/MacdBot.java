@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MacdBot {
 
-    public static BotResult start(HashMap<ZonedDateTime, Boolean> mapFtm, HashMap<ZonedDateTime, Boolean> mapAion, HashMap<ZonedDateTime, Boolean> mapPsg, HashMap<ZonedDateTime, Boolean> mapIost, HashMap<ZonedDateTime, Boolean> mapNano, List<List<Pair_Candle>> lists) {
+    public static BotResult start(HashMap<ZonedDateTime, Boolean> mapFtm, HashMap<ZonedDateTime, Boolean> mapAion, HashMap<ZonedDateTime, Boolean> mapPsg, HashMap<ZonedDateTime, Boolean> mapIost, HashMap<ZonedDateTime, Boolean> mapNano, HashMap<ZonedDateTime, Boolean> mapShib, List<List<Pair_Candle>> lists) {
         int successTrades = 0;
         int trades = 0;
         int IOSTtrades = 0;
@@ -18,6 +18,7 @@ public class MacdBot {
         int PSGtrades = 0;
         int FTMtrades = 0;
         int NANOtrades = 0;
+
         BigDecimal wallet = new BigDecimal("1");
 
         BigDecimal buyPrice = new BigDecimal(0);
@@ -29,6 +30,7 @@ public class MacdBot {
         List<Pair_Candle> psg = lists.get(2);
         List<Pair_Candle> iost = lists.get(3);
         List<Pair_Candle> nano = lists.get(4);
+        List<Pair_Candle> shib = lists.get(5);
 
         boolean tradingAion = false;
         boolean tradingFtm = false;
@@ -47,7 +49,8 @@ public class MacdBot {
 
             time = pcAion.getCloseTime();
 
-//             stoploss
+
+//            TODO stoploss
 /*
             if (tradingAion) {
                 if (0 > (pcAion.getClose().compareTo(buyPrice.multiply(stoploss)))) {
@@ -158,7 +161,6 @@ public class MacdBot {
             }
 
 
-
             //            psg
             if (mapPsg.containsKey(time)) {
                 if (mapPsg.get(time) == true && !tradingFtm && !tradingAion && !tradingIost && !tradingNano) {
@@ -224,8 +226,6 @@ public class MacdBot {
                     System.out.println(profit);
                 }
             }
-
-
         }
 
 

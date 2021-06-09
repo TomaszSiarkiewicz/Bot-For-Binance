@@ -6,6 +6,10 @@ import triggers.sell.RsiTriggerSell;
 
 import java.util.List;
 
+/**
+ * Using Macd and Rsi indicators returns false if it's time to sell
+ */
+
 public class SellTrigger {
 
 

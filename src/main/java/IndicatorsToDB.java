@@ -1,6 +1,6 @@
 import enums.Pairs;
 import hibernate.DbConnector;
-import hibernate.entities.*;
+import hibernate.entities.Pair_Candle;
 import hibernate.entities.tics.*;
 import org.ta4j.core.BarSeries;
 import org.ta4j.core.BaseBarSeriesBuilder;
@@ -12,8 +12,17 @@ import org.ta4j.core.indicators.helpers.ClosePriceIndicator;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Takes candle data list and calculates finansial indicators Rsi, Macd into database
+ * for specified trading pair
+ *
+ * @Param tic candle data from period like: 5
+ */
+
 public class IndicatorsToDB {
 
+
+//    TODO change param int to enum
     public static void putIndicatorsInDb(List<Pair_Candle> databaseData, int tic, Pairs pair) {
         System.out.println("putIndicatorsInDb");
         int rsiBarCount = 30;

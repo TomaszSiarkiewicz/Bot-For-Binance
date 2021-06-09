@@ -7,6 +7,14 @@ import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Creates buy/sell map for MacdMtmBot
+ *
+ * @Param  sellRsi  suggested values: 60-80
+ * @Param  buyRsi  suggested values: 25-40
+ *
+ */
+
 public class BuySellMapCreator {
 
 

@@ -14,6 +14,7 @@ public class BotResult {
     int FTMtrades;
     int NANOtrades;
 
+
     public BigDecimal getWallet() {
         return wallet;
     }
@@ -100,7 +101,7 @@ public class BotResult {
                 "wallet=" + wallet +
                 ", trades=" + trades +
                 ", successTrades=" + successTrades +
-                ", successTradesPercent=" + ((float)successTrades/ (float)trades)*100 +
+                ", successTradesPercent=" + ((float) successTrades / (float) trades) * 100 +
                 ", RsiBuy=" + RsiBuy +
                 ", RsiSel=" + RsiSel +
                 ", IOSTtrades=" + IOSTtrades +

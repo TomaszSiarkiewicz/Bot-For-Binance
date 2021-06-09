@@ -6,6 +6,9 @@ import triggers.buy.RsiTriggerBuy;
 
 import java.util.List;
 
+/**
+ * Returns true if it's time to buy
+ */
 public class BuyTrigger {
 
     public static boolean buy(List<Tic> indicators, int buyRsi, int ticnum) {

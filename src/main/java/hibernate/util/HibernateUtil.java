@@ -45,7 +45,6 @@ public class HibernateUtil {
 
 
                 // annotated classes
-                // configuration.addAnnotatedClass(BankDeposit.class);
                 configuration.addAnnotatedClass(AIONUSDT_1minCandle.class);
                 configuration.addAnnotatedClass(AIONUSDT_5minCandle.class);
                 configuration.addAnnotatedClass(BTCUSDT_1minCandle.class);
@@ -66,6 +65,8 @@ public class HibernateUtil {
                 configuration.addAnnotatedClass(Tic5nano.class);
                 configuration.addAnnotatedClass(Tic5ftm.class);
                 configuration.addAnnotatedClass(Tic30.class);
+
+
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);

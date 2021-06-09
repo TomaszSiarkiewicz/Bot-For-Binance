@@ -8,6 +8,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Obosolete traiding strategy
+ */
+
 public class HeatMap {
     BigDecimal profit = new BigDecimal("1.005");
     DbConnector dbConnector = new DbConnector();

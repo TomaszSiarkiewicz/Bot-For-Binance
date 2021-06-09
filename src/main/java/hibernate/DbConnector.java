@@ -174,6 +174,7 @@ public class DbConnector {
         List<Pair_Candle> list = data.getResultList();
         return list;
     }
+
     public List<Pair_Candle> getPairCandle5minIOSTData() {
         Session session = sessionFactory.openSession();
 
@@ -256,6 +257,7 @@ public class DbConnector {
         List<Tic> list = data.getResultList();
         return list;
     }
+
 
     public List<Tic> getIndicatorsList15() {
         Session session = sessionFactory.openSession();

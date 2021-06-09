@@ -7,13 +7,16 @@ import enums.Tics;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
-/*
-
-Gets enums pair and tics, date
-
-fetches data to database for pairs and tics chosen as enums from given date
-
+/**
+ * Gets enums pair and tics, date
+ * fetches data to database for pairs and tics chosen as enums from given date
+ * data downloaded from binance.com
  */
+
+
+
+
+
 
 public class Importer {
 
