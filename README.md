@@ -6,8 +6,8 @@ Current stage:
   - 6 traiding pairs models
   - download history data from Binance.com (zipped csv files)
   - PostgreSQL database connected with hibernate
-  - MACD/RSI test
-  - partiali adopted api connection
+  - MACD/RSI strategy test 
+  - partially adopted api connection
  
  In progress:
   - optimize data import
