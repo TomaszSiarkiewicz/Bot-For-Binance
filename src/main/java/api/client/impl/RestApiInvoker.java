@@ -2,11 +2,7 @@ package api.client.impl;
 
 import api.client.exception.BinanceApiException;
 import api.client.impl.utils.JsonWrapper;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.WebSocket;
-import okhttp3.WebSocketListener;
+import okhttp3.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

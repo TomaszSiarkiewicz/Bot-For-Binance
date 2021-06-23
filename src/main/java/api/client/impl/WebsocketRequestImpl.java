@@ -6,21 +6,9 @@ import api.client.impl.utils.Channels;
 import api.client.impl.utils.JsonWrapper;
 import api.client.impl.utils.JsonWrapperArray;
 import api.client.model.enums.CandlestickInterval;
-import api.client.model.event.AggregateTradeEvent;
-import api.client.model.event.CandlestickEvent;
-import api.client.model.event.LiquidationOrderEvent;
-import api.client.model.event.MarkPriceEvent;
-import api.client.model.event.OrderBookEvent;
-import api.client.model.event.SymbolBookTickerEvent;
-import api.client.model.event.SymbolMiniTickerEvent;
-import api.client.model.event.SymbolTickerEvent;
+import api.client.model.event.*;
 import api.client.model.market.OrderBookEntry;
-import api.client.model.user.AccountUpdate;
-import api.client.model.user.BalanceUpdate;
-import api.client.model.user.OrderUpdate;
-import api.client.model.user.PositionUpdate;
-import api.client.model.user.UserDataUpdateEvent;
-
+import api.client.model.user.*;
 
 import java.math.BigDecimal;
 import java.util.LinkedList;
@@ -251,8 +239,8 @@ class WebsocketRequestImpl {
     }
 
     WebsocketRequest<SymbolBookTickerEvent> subscribeSymbolBookTickerEvent(String symbol,
-            SubscriptionListener<SymbolBookTickerEvent> subscriptionListener,
-            SubscriptionErrorHandler errorHandler) {
+                                                                           SubscriptionListener<SymbolBookTickerEvent> subscriptionListener,
+                                                                           SubscriptionErrorHandler errorHandler) {
         InputChecker.checker()
                 .shouldNotNull(symbol, "symbol")
                 .shouldNotNull(subscriptionListener, "listener");
@@ -296,8 +284,8 @@ class WebsocketRequestImpl {
     }
 
     WebsocketRequest<LiquidationOrderEvent> subscribeSymbolLiquidationOrderEvent(String symbol,
-            SubscriptionListener<LiquidationOrderEvent> subscriptionListener,
-            SubscriptionErrorHandler errorHandler) {
+                                                                                 SubscriptionListener<LiquidationOrderEvent> subscriptionListener,
+                                                                                 SubscriptionErrorHandler errorHandler) {
         InputChecker.checker()
                 .shouldNotNull(symbol, "symbol")
                 .shouldNotNull(subscriptionListener, "listener");
@@ -357,8 +345,8 @@ class WebsocketRequestImpl {
     }
 
     WebsocketRequest<OrderBookEvent> subscribeBookDepthEvent(String symbol, Integer limit,
-            SubscriptionListener<OrderBookEvent> subscriptionListener,
-            SubscriptionErrorHandler errorHandler) {
+                                                             SubscriptionListener<OrderBookEvent> subscriptionListener,
+                                                             SubscriptionErrorHandler errorHandler) {
         InputChecker.checker()
                 .shouldNotNull(symbol, "symbol")
                 .shouldNotNull(limit, "limit")
@@ -403,8 +391,8 @@ class WebsocketRequestImpl {
     }
 
     WebsocketRequest<OrderBookEvent> subscribeDiffDepthEvent(String symbol,
-            SubscriptionListener<OrderBookEvent> subscriptionListener,
-            SubscriptionErrorHandler errorHandler) {
+                                                             SubscriptionListener<OrderBookEvent> subscriptionListener,
+                                                             SubscriptionErrorHandler errorHandler) {
         InputChecker.checker()
                 .shouldNotNull(symbol, "symbol")
                 .shouldNotNull(subscriptionListener, "listener");
@@ -463,7 +451,7 @@ class WebsocketRequestImpl {
             result.setEventTime(jsonWrapper.getLong("E"));
             result.setTransactionTime(jsonWrapper.getLong("T"));
 
-            if(jsonWrapper.getString("e").equals("ACCOUNT_UPDATE")) {
+            if (jsonWrapper.getString("e").equals("ACCOUNT_UPDATE")) {
                 AccountUpdate accountUpdate = new AccountUpdate();
 
                 List<BalanceUpdate> balanceList = new LinkedList<>();
@@ -491,7 +479,7 @@ class WebsocketRequestImpl {
 
                 result.setAccountUpdate(accountUpdate);
 
-            } else if(jsonWrapper.getString("e").equals("ORDER_TRADE_UPDATE")) {
+            } else if (jsonWrapper.getString("e").equals("ORDER_TRADE_UPDATE")) {
                 OrderUpdate orderUpdate = new OrderUpdate();
                 JsonWrapper jsondata = jsonWrapper.getJsonObject("o");
                 orderUpdate.setSymbol(jsondata.getStringOrDefault("s", ""));

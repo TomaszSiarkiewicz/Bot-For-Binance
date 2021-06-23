@@ -4,10 +4,9 @@ package api.client.impl;
 import api.client.constant.BinanceApiConstants;
 import api.client.exception.BinanceApiException;
 import api.client.impl.utils.JsonWrapper;
-
 import okhttp3.Request;
-import okhttp3.WebSocket;
 import okhttp3.Response;
+import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,28 +17,19 @@ public class WebSocketConnection extends WebSocketListener {
     private static final Logger log = LoggerFactory.getLogger(WebSocketConnection.class);
 
     private static int connectionCounter = 0;
-
-    public enum ConnectionState {
-        IDLE, DELAY_CONNECT, CONNECTED, CLOSED_ON_ERROR
-    }
-
-    private WebSocket webSocket = null;
-
-    private volatile long lastReceivedTime = 0;
-
-    private volatile ConnectionState state = ConnectionState.IDLE;
-    private int delayInSecond = 0;
-
     private final WebsocketRequest request;
     private final Request okhttpRequest;
     private final WebSocketWatchDog watchDog;
     private final int connectionId;
     private final boolean autoClose;
-
+    private WebSocket webSocket = null;
+    private volatile long lastReceivedTime = 0;
+    private volatile ConnectionState state = ConnectionState.IDLE;
+    private int delayInSecond = 0;
     private String subscriptionUrl = BinanceApiConstants.WS_API_BASE_URL;
 
     WebSocketConnection(WebsocketRequest request,
-            WebSocketWatchDog watchDog) {
+                        WebSocketWatchDog watchDog) {
         this(request, watchDog, false);
     }
 
@@ -197,5 +187,9 @@ public class WebSocketConnection extends WebSocketListener {
             state = ConnectionState.CLOSED_ON_ERROR;
             log.error("[Sub][" + this.connectionId + "] Connection is closing due to error");
         }
+    }
+
+    public enum ConnectionState {
+        IDLE, DELAY_CONNECT, CONNECTED, CLOSED_ON_ERROR
     }
 }

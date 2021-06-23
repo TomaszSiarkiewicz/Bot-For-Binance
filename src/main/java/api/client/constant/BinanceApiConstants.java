@@ -10,15 +10,17 @@ public class BinanceApiConstants {
     /**
      * REST API base URL.
      */
-//    public static final String API_BASE_URL = "https://api.binance.com";
+//    api base "https://api.binance.com"
+//            api test "https://testnet.binance.vision/"
     public static final String API_BASE_URL = "https://api.binance.com";
-    public static final String API_TEST_URL = "https://testnet.binance.vision/";
+    public static final String API_TEST_URL = "https://testnet.binance.vision";
+
 
     /**
      * Streaming API base URL.
      */
     public static final String WS_API_BASE_URL = "wss://stream.binance.com:9443/ws";
-    public static final String WS_API_TEST_URL = "wss://testnet.binance.vision/ws";
+
 
     /**
      * HTTP Header to be used for API-KEY authentication.

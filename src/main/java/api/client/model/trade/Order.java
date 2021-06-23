@@ -1,82 +1,78 @@
 package api.client.model.trade;
 
 import api.client.constant.BinanceApiConstants;
+import api.client.model.enums.OrderSide;
+import api.client.model.enums.OrderType;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.math.BigDecimal;
 
 public class Order {
 
-    private String clientOrderId;
+    private String symbol;
 
-    private BigDecimal cumQuote;
+    private String orderId;
 
-    private BigDecimal executedQty;
+    private String orderListId;
 
-    private Long orderId;
+    private String ClientOrderId;
 
-    private BigDecimal origQty;
+    private Long transactTime;
 
     private BigDecimal price;
 
-    private Boolean reduceOnly;
+    private BigDecimal origQty;
 
-    private String side;
+    private BigDecimal executedQty;
 
-    private String positionSide;
+    private BigDecimal cummulativeQuoteQty;
 
     private String status;
-
-    private BigDecimal stopPrice;
-
-    private String symbol;
 
     private String timeInForce;
 
     private String type;
 
-    private Long updateTime;
+    private String side;
 
-    private String workingType;
-
-    public String getClientOrderId() {
-        return clientOrderId;
+    public String getSymbol() {
+        return symbol;
     }
 
-    public void setClientOrderId(String clientOrderId) {
-        this.clientOrderId = clientOrderId;
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
-    public BigDecimal getCumQuote() {
-        return cumQuote;
-    }
-
-    public void setCumQuote(BigDecimal cumQuote) {
-        this.cumQuote = cumQuote;
-    }
-
-    public BigDecimal getExecutedQty() {
-        return executedQty;
-    }
-
-    public void setExecutedQty(BigDecimal executedQty) {
-        this.executedQty = executedQty;
-    }
-
-    public Long getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 
-    public void setOrderId(Long orderId) {
+    public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
 
-    public BigDecimal getOrigQty() {
-        return origQty;
+    public String getOrderListId() {
+        return orderListId;
     }
 
-    public void setOrigQty(BigDecimal origQty) {
-        this.origQty = origQty;
+    public void setOrderListId(String orderListId) {
+        this.orderListId = orderListId;
+    }
+
+    public String getClientOrderId() {
+        return ClientOrderId;
+    }
+
+    public void setClientOrderId(String clientOrderId) {
+        ClientOrderId = clientOrderId;
+    }
+
+    public Long getTransactTime() {
+        return transactTime;
+    }
+
+    public void setTransactTime(Long transactTime) {
+        this.transactTime = transactTime;
     }
 
     public BigDecimal getPrice() {
@@ -87,28 +83,28 @@ public class Order {
         this.price = price;
     }
 
-    public Boolean getReduceOnly() {
-        return reduceOnly;
+    public BigDecimal getOrigQty() {
+        return origQty;
     }
 
-    public void setReduceOnly(Boolean reduceOnly) {
-        this.reduceOnly = reduceOnly;
+    public void setOrigQty(BigDecimal origQty) {
+        this.origQty = origQty;
     }
 
-    public String getSide() {
-        return side;
+    public BigDecimal getExecutedQty() {
+        return executedQty;
     }
 
-    public void setSide(String side) {
-        this.side = side;
+    public void setExecutedQty(BigDecimal executedQty) {
+        this.executedQty = executedQty;
     }
 
-    public String getPositionSide() {
-        return positionSide;
+    public BigDecimal getCummulativeQuoteQty() {
+        return cummulativeQuoteQty;
     }
 
-    public void setPositionSide(String positionSide) {
-        this.positionSide = positionSide;
+    public void setCummulativeQuoteQty(BigDecimal cummulativeQuoteQty) {
+        this.cummulativeQuoteQty = cummulativeQuoteQty;
     }
 
     public String getStatus() {
@@ -117,22 +113,6 @@ public class Order {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public BigDecimal getStopPrice() {
-        return stopPrice;
-    }
-
-    public void setStopPrice(BigDecimal stopPrice) {
-        this.stopPrice = stopPrice;
-    }
-
-    public String getSymbol() {
-        return symbol;
-    }
-
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
     }
 
     public String getTimeInForce() {
@@ -151,29 +131,30 @@ public class Order {
         this.type = type;
     }
 
-    public Long getUpdateTime() {
-        return updateTime;
+    public String getSide() {
+        return side;
     }
 
-    public void setUpdateTime(Long updateTime) {
-        this.updateTime = updateTime;
-    }
-
-    public String getWorkingType() {
-        return workingType;
-    }
-
-    public void setWorkingType(String workingType) {
-        this.workingType = workingType;
+    public void setSide(String side) {
+        this.side = side;
     }
 
     @Override
     public String toString() {
-        return new ToStringBuilder(this, BinanceApiConstants.TO_STRING_BUILDER_STYLE)
-                .append("clientOrderId", clientOrderId).append("cumQuote", cumQuote).append("executedQty", executedQty)
-                .append("orderId", orderId).append("origQty", origQty).append("price", price)
-                .append("reduceOnly", reduceOnly).append("side", side).append("positionSide", positionSide).append("status", status)
-                .append("stopPrice", stopPrice).append("symbol", symbol).append("timeInForce", timeInForce)
-                .append("type", type).append("updateTime", updateTime).append("workingType", workingType).toString();
+        return "Order{" +
+                "symbol='" + symbol + '\'' +
+                ", orderId='" + orderId + '\'' +
+                ", orderListId='" + orderListId + '\'' +
+                ", ClientOrderId='" + ClientOrderId + '\'' +
+                ", transactTime=" + transactTime +
+                ", price=" + price +
+                ", origQty=" + origQty +
+                ", executedQty=" + executedQty +
+                ", cummulativeQuoteQty=" + cummulativeQuoteQty +
+                ", status='" + status + '\'' +
+                ", timeInForce='" + timeInForce + '\'' +
+                ", type=" + type +
+                ", side=" + side +
+                '}';
     }
 }

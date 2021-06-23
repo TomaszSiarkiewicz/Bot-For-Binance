@@ -11,11 +11,11 @@ public final class BinanceApiInternalFactory {
 
     private static final BinanceApiInternalFactory instance = new BinanceApiInternalFactory();
 
-    public static BinanceApiInternalFactory getInstance() {
-        return instance;
+    private BinanceApiInternalFactory() {
     }
 
-    private BinanceApiInternalFactory() {
+    public static BinanceApiInternalFactory getInstance() {
+        return instance;
     }
 
     public SyncRequestClient createSyncRequestClient(String apiKey, String secretKey, RequestOptions options) {

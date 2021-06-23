@@ -13,10 +13,14 @@ public class JsonWrapper {
 
     private final JSONObject json;
 
+    public JsonWrapper(JSONObject json) {
+        this.json = json;
+    }
+
     public static JsonWrapper parseFromString(String text) {
         try {
             JSONObject jsonObject;
-            if(JSON.parse(text) instanceof JSONArray) {
+            if (JSON.parse(text) instanceof JSONArray) {
                 jsonObject = (JSONObject) JSON.parse("{data:" + text + "}");
             } else {
                 jsonObject = (JSONObject) JSON.parse(text);
@@ -32,10 +36,6 @@ public class JsonWrapper {
         } catch (Exception e) {
             throw new BinanceApiException(BinanceApiException.RUNTIME_ERROR, "[Json] " + e.getMessage());
         }
-    }
-
-    public JsonWrapper(JSONObject json) {
-        this.json = json;
     }
 
     private void checkMandatoryField(String name) {
@@ -126,6 +126,7 @@ public class JsonWrapper {
                     "[Json] Get long error: " + name + " " + e.getMessage());
         }
     }
+
     public Double getDouble(String name) {
         checkMandatoryField(name);
         try {

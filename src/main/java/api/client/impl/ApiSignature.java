@@ -3,7 +3,6 @@ package api.client.impl;
 import api.client.constant.BinanceApiConstants;
 import api.client.exception.BinanceApiException;
 import api.client.impl.utils.UrlParamsBuilder;
-
 import org.apache.commons.codec.binary.Hex;
 
 import javax.crypto.Mac;
@@ -13,10 +12,10 @@ import java.security.NoSuchAlgorithmException;
 
 class ApiSignature {
 
+    public static final String signatureVersionValue = "2";
     static final String op = "op";
     static final String opValue = "auth";
     private static final String signatureMethodValue = "HmacSHA256";
-    public static final String signatureVersionValue = "2";
 
     void createSignature(String accessKey, String secretKey, UrlParamsBuilder builder) {
 
