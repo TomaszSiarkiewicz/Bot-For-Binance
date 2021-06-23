@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Takes candle data list and calculates finansial indicators Rsi, Macd into database
+ * Takes candle data list and calculates financial indicators Rsi, Macd into database
  * for specified trading pair
  *
  * @Param tic candle data from period like: 5

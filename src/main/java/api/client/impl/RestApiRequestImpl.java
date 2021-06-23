@@ -10,8 +10,10 @@ import api.client.model.enums.OrderSide;
 import api.client.model.enums.OrderType;
 import api.client.model.market.Candlestick;
 import api.client.model.market.CurrentAVGPrice;
+import api.client.model.market.SymbolPrice;
 import api.client.model.spot.wallet.*;
 import api.client.model.trade.Order;
+import com.alibaba.fastjson.JSONArray;
 import okhttp3.Request;
 
 import java.math.BigDecimal;
@@ -401,6 +403,30 @@ class RestApiRequestImpl {
         });
         return request;
     }
+    RestApiRequest<List<SymbolPrice>> getSymbolPriceTicker(String symbol) {
+        RestApiRequest<List<SymbolPrice>> request = new RestApiRequest<>();
+        UrlParamsBuilder builder = UrlParamsBuilder.build()
+                .putToUrl("symbol", symbol);
+        request.request = createRequestByGet("/api/v3/ticker/price", builder);
 
+        request.jsonParser = (jsonWrapper -> {
+            List<SymbolPrice> result = new LinkedList<>();
+            JsonWrapperArray dataArray = new JsonWrapperArray(new JSONArray());
+            if (jsonWrapper.containKey("data")) {
+                dataArray = jsonWrapper.getJsonArray("data");
+            } else {
+                dataArray.add(jsonWrapper.convert2JsonObject());
+            }
+            dataArray.forEach((item) -> {
+                SymbolPrice element = new SymbolPrice();
+                element.setSymbol(item.getString("symbol"));
+                element.setPrice(item.getBigDecimal("price"));
+                result.add(element);
+            });
+
+            return result;
+        });
+        return request;
+    }
 
 }

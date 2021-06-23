@@ -4,6 +4,7 @@ import api.client.SyncRequestClient;
 import api.client.model.enums.CandlestickInterval;
 import api.client.model.market.Candlestick;
 import api.client.model.market.CurrentAVGPrice;
+import api.client.model.market.SymbolPrice;
 import api.client.model.spot.wallet.*;
 import api.client.model.trade.Order;
 
@@ -69,6 +70,10 @@ public class SyncRequestImpl implements SyncRequestClient {
     @Override
     public Order postOrderMarketSell(String symbol, BigDecimal quantity, Long timestamp) {
         return RestApiInvoker.callSync(requestImpl.postOrderMarketSell(symbol, quantity, timestamp));
+    }
+    @Override
+    public List<SymbolPrice> getSymbolPriceTicker(String symbol){
+        return RestApiInvoker.callSync(requestImpl.getSymbolPriceTicker(symbol));
     }
 
 }
