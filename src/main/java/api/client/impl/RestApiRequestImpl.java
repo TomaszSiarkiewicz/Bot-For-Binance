@@ -403,10 +403,10 @@ class RestApiRequestImpl {
         });
         return request;
     }
-    RestApiRequest<List<SymbolPrice>> getSymbolPriceTicker(String symbol) {
-        RestApiRequest<List<SymbolPrice>> request = new RestApiRequest<>();
-        UrlParamsBuilder builder = UrlParamsBuilder.build()
-                .putToUrl("symbol", symbol);
+
+    RestApiRequest<SymbolPrice> getSymbolPriceTicker(String pair) {
+        RestApiRequest<SymbolPrice> request = new RestApiRequest<>();
+        UrlParamsBuilder builder = UrlParamsBuilder.build().putToUrl("symbol", pair);
         request.request = createRequestByGet("/api/v3/ticker/price", builder);
 
         request.jsonParser = (jsonWrapper -> {
@@ -424,9 +424,10 @@ class RestApiRequestImpl {
                 result.add(element);
             });
 
-            return result;
+            return result.get(0);
         });
         return request;
     }
+
 
 }

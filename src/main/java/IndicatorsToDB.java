@@ -28,7 +28,7 @@ public class IndicatorsToDB {
         int rsiBarCount = 30;
 
         DbConnector dbConnector = new DbConnector();
-        BarSeries series = new BaseBarSeriesBuilder().withName("AXP_Stock").build();
+        BarSeries series = new BaseBarSeriesBuilder().build();
 
         for (Pair_Candle pc : databaseData) {
             series.addBar(pc.getCloseTime(), pc.getOpen(), pc.getHigh(), pc.getLow(), pc.getClose(), pc.getVolume());

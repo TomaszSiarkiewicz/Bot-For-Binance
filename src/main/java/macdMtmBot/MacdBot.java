@@ -117,7 +117,7 @@ public class MacdBot {
 
 //                        iost
             if (mapIost.containsKey(time)) {
-                if (mapIost.get(time) == true && !tradingFtm && !tradingAion && !tradingPsg && !tradingNano) {
+                if (mapIost.get(time) && !tradingFtm && !tradingAion && !tradingPsg && !tradingNano) {
                     buyPrice = pcIost.getClose();
                     tradingIost = true;
                     wallet = wallet.multiply(BigDecimal.valueOf(0.999));
@@ -140,7 +140,7 @@ public class MacdBot {
 
             //            aion
             if (mapAion.containsKey(time)) {
-                if (mapAion.get(time) == true && !tradingFtm && !tradingPsg && !tradingIost && !tradingNano) {
+                if (mapAion.get(time) && !tradingFtm && !tradingPsg && !tradingIost && !tradingNano) {
                     buyPrice = pcAion.getClose();
                     tradingAion = true;
                     wallet = wallet.multiply(BigDecimal.valueOf(0.999));
@@ -163,7 +163,7 @@ public class MacdBot {
 
             //            psg
             if (mapPsg.containsKey(time)) {
-                if (mapPsg.get(time) == true && !tradingFtm && !tradingAion && !tradingIost && !tradingNano) {
+                if (mapPsg.get(time) && !tradingFtm && !tradingAion && !tradingIost && !tradingNano) {
                     buyPrice = pcPsg.getClose();
                     tradingPsg = true;
                     wallet = wallet.multiply(BigDecimal.valueOf(0.999));
@@ -185,7 +185,7 @@ public class MacdBot {
 
             //          nano
             if (mapNano.containsKey(time)) {
-                if (mapNano.get(time) == true && !tradingFtm && !tradingAion && !tradingIost && !tradingPsg) {
+                if (mapNano.get(time) && !tradingFtm && !tradingAion && !tradingIost && !tradingPsg) {
                     buyPrice = pcNano.getClose();
                     tradingNano = true;
                     wallet = wallet.multiply(BigDecimal.valueOf(0.999));
@@ -207,7 +207,7 @@ public class MacdBot {
 
             // ftm
             if (mapFtm.containsKey(time)) {
-                if (mapFtm.get(time) == true && !tradingAion && !tradingPsg && !tradingIost && !tradingNano) {
+                if (mapFtm.get(time) && !tradingAion && !tradingPsg && !tradingIost && !tradingNano) {
                     buyPrice = pcBtc.getClose();
                     tradingFtm = true;
                     wallet = wallet.multiply(BigDecimal.valueOf(0.999));
