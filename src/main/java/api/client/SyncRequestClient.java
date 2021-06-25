@@ -77,6 +77,6 @@ public interface SyncRequestClient {
 
     List<CoinsInWalletInfo> walletInfo(Long timestamp);
 
-    SymbolPrice getSymbolPriceTicker(String pair);
+    List<SymbolPrice> getSymbolPriceTicker();
 
 }

@@ -72,8 +72,8 @@ public class SyncRequestImpl implements SyncRequestClient {
         return RestApiInvoker.callSync(requestImpl.postOrderMarketSell(symbol, quantity, timestamp));
     }
     @Override
-    public SymbolPrice getSymbolPriceTicker(String pair){
-        return RestApiInvoker.callSync(requestImpl.getSymbolPriceTicker(pair));
+    public List<SymbolPrice> getSymbolPriceTicker(){
+        return RestApiInvoker.callSync(requestImpl.getSymbolPriceTicker());
     }
 
 }

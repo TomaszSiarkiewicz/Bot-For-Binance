@@ -76,33 +76,10 @@ public class BinanceDataRepository {
         return tics;
     }
 
-    public SymbolPrice currentPrice(Pairs pair) {
-        return syncRequestClient.getSymbolPriceTicker(pair.getName());
+    public List<SymbolPrice> currentPrices() {
+        return syncRequestClient.getSymbolPriceTicker();
     }
 
-    public List<Tic> updateIndicators(Pairs pair, List<Candlestick> candlesticks) {
-        List<Candlestick> candlestickList = candlesticks;
-        long lastCandleTime = candlestickList.get(candlestickList.size() - 2).getCloseTime();
 
-        if (lastCandleTime < System.currentTimeMillis()) {
-            System.out.println("new-----------------------------------------------------------------------------");
-            candlestickList = updatePairCandles(pair);
-            Candlestick candlestick = new Candlestick();
-            candlestick.setOpenTime(candlestickList.get(candlestickList.size() - 1).getCloseTime() + 1);
-            candlestick.setCloseTime(candlestick.getOpenTime() + 300000 - 1);
-            candlestick.setClose(currentPrice(pair).getPrice());
-            candlestick.setHigh(candlestick.getClose());
-            candlestick.setLow(candlestick.getClose());
-            candlestick.setOpen(candlestick.getClose());
-            candlestick.setVolume(candlestickList.get(candlestickList.size() - 1).getVolume());
-            candlestick.setIgnore(BigDecimal.ONE);
-            candlestickList.add(candlestick);
-        } else {
-            System.out.println("update");
-            candlestickList.get(candlestickList.size() - 1).setClose(currentPrice(pair).getPrice());
-
-        }
-        return getIndicators(candlestickList);
-    }
 }
 

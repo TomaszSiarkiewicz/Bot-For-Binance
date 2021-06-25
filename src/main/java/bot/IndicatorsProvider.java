@@ -16,16 +16,16 @@ public class IndicatorsProvider {
         binanceDataRepository = dataRepository;
         recentCandles = new CandleDataProvider(pair, dataRepository);
         recentPrice = new CurrentPriceProvider(pair, dataRepository);
-        Thread thread = new Thread(recentCandles);
-        Thread thread2 = new Thread(recentPrice);
-        thread.start();
-        thread2.start();
+        Thread threadRecentCandle = new Thread(recentCandles);
+        Thread threadRecentPrice = new Thread(recentPrice);
+        threadRecentCandle.start();
+        threadRecentPrice.start();
         indicators = initData(pair, dataRepository);
     }
 
-    public List<Tic> getIndicators() {
+    public List<Tic> getIndicators(Pairs pair) {
         List<Candlestick> candlesticks = recentCandles.getRecentCandles();
-        candlesticks.get(candlesticks.size() - 1).setClose(recentPrice.getPrice());
+        candlesticks.get(candlesticks.size() - 1).setClose(recentPrice.getPrice(pair));
         return binanceDataRepository.getIndicators(candlesticks);
     }
 
