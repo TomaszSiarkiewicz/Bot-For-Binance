@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 
 public class CurrentPriceProvider implements Runnable {
 
-    private final Pairs pair;
+
     private final BinanceDataRepository binanceDataRepository;
     private volatile List<SymbolPrice> symbolPrice;
     private boolean run = true;
 
-    public CurrentPriceProvider(Pairs pair, BinanceDataRepository binanceDataRepository) {
+    public CurrentPriceProvider(BinanceDataRepository binanceDataRepository) {
         this.binanceDataRepository = binanceDataRepository;
-        this.pair = pair;
+
         init();
     }
 
@@ -26,7 +26,7 @@ public class CurrentPriceProvider implements Runnable {
             System.out.println(" -----PRICE UPDATE----- ");
             symbolPrice = binanceDataRepository.currentPrices();
             try {
-                Thread.sleep(5000);
+                Thread.sleep(10000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

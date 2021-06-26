@@ -25,7 +25,7 @@ public class CandleDataProvider implements Runnable {
             System.out.println(" ----CANDLE UPDATE---- ");
             candles = binanceDataRepository.updatePairCandles(pair);
             try {
-                Thread.sleep(10000);
+                Thread.sleep(300_000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
