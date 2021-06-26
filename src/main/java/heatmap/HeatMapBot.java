@@ -54,10 +54,10 @@ public class HeatMapBot {
 //        BigDecimal duza = new BigDecimal(1.22);
 //
 //        System.out.println(compare(mala, duza));
-//        System.out.println(heatmap.Bot.compare(duza, mala));
+//        System.out.println(heatmap.Bot.Bot.compare(duza, mala));
 //        System.out.println(mala.divide(duza, 11, RoundingMode.HALF_UP));
 //        System.out.println(duza.divide(mala, 11, RoundingMode.HALF_UP));
-//        System.out.println(heatmap.Bot.run(most));
+//        System.out.println(heatmap.Bot.Bot.run(most));
         BigDecimal stopLoss = BigDecimal.valueOf(0.9);
         BigDecimal takeProfit = BigDecimal.valueOf(1.05);
         BigDecimal trailingStop = BigDecimal.valueOf(0.999);
