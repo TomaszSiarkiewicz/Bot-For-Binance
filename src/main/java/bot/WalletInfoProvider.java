@@ -7,7 +7,7 @@ import java.util.List;
 public class WalletInfoProvider implements Runnable {
 
     private final BinanceDataRepository dataRepository;
-    private List<CoinsInWalletInfo> coinsInWallet;
+    private volatile List<CoinsInWalletInfo> coinsInWallet;
     private boolean run = true;
 
     public WalletInfoProvider(BinanceDataRepository dataRepository) {
@@ -19,7 +19,7 @@ public class WalletInfoProvider implements Runnable {
     public void run() {
         while (run) {
             System.out.println(" ----WALLET UPDATE----");
-            dataRepository.updateCoins();
+            coinsInWallet = dataRepository.updateCoins();
             try {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
@@ -34,8 +34,9 @@ public class WalletInfoProvider implements Runnable {
     }
 
     public List<CoinsInWalletInfo> getAvailableCoins() {
-        coinsInWallet.removeIf(i -> ((i.getFree().doubleValue() < 0) || (i.getLocked().doubleValue() < 0) || !i.getCoin().equals("USDT")));
-        return coinsInWallet;
+        List<CoinsInWalletInfo> filteredCoins = coinsInWallet;
+        filteredCoins.removeIf(i -> ((i.getFree().doubleValue() == 0) && (i.getLocked().doubleValue() == 0)) && !i.getCoin().equals("USDT") );
+        return filteredCoins;
     }
 
     public void setRun(boolean run) {

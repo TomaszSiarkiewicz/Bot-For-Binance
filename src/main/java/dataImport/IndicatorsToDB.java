@@ -1,3 +1,5 @@
+package dataImport;
+
 import enums.Pairs;
 import hibernate.DbConnector;
 import hibernate.entities.Pair_Candle;

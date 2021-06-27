@@ -16,12 +16,10 @@ import org.ta4j.core.indicators.MACDIndicator;
 import org.ta4j.core.indicators.RSIIndicator;
 import org.ta4j.core.indicators.helpers.ClosePriceIndicator;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class BinanceDataRepository {
@@ -38,16 +36,7 @@ public class BinanceDataRepository {
 
 
     public List<CoinsInWalletInfo> updateCoins() {
-        List<CoinsInWalletInfo> coins = syncRequestClient.walletInfo(ZonedDateTime.now().toEpochSecond());
-        Iterator<CoinsInWalletInfo> iterator = coins.iterator();
-        while (iterator.hasNext()) {
-            CoinsInWalletInfo coin = iterator.next();
-            System.out.println(coin);
-            if (coin.getFree().compareTo(BigDecimal.ZERO) < 1) {
-                iterator.remove();
-            }
-        }
-        return coins;
+        return syncRequestClient.walletInfo(ZonedDateTime.now().toEpochSecond());
     }
 
     public List<Tic> getIndicators(List<Candlestick> candlesticks) {

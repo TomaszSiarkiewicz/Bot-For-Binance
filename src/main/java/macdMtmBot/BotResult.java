@@ -8,10 +8,7 @@ public class BotResult {
     int successTrades;
     int RsiBuy;
     int RsiSel;
-    int IOSTtrades;
     int AIONtrades;
-    int PSGtrades;
-    int FTMtrades;
     int NANOtrades;
 
 
@@ -55,36 +52,12 @@ public class BotResult {
         RsiSel = rsiSel;
     }
 
-    public int getIOSTtrades() {
-        return IOSTtrades;
-    }
-
-    public void setIOSTtrades(int IOSTtrades) {
-        this.IOSTtrades = IOSTtrades;
-    }
-
     public int getAIONtrades() {
         return AIONtrades;
     }
 
     public void setAIONtrades(int AIONtrades) {
         this.AIONtrades = AIONtrades;
-    }
-
-    public int getPSGtrades() {
-        return PSGtrades;
-    }
-
-    public void setPSGtrades(int PSGtrades) {
-        this.PSGtrades = PSGtrades;
-    }
-
-    public int getFTMtrades() {
-        return FTMtrades;
-    }
-
-    public void setFTMtrades(int FTMtrades) {
-        this.FTMtrades = FTMtrades;
     }
 
     public int getNANOtrades() {
@@ -104,11 +77,8 @@ public class BotResult {
                 ", successTradesPercent=" + ((float) successTrades / (float) trades) * 100 +
                 ", RsiBuy=" + RsiBuy +
                 ", RsiSel=" + RsiSel +
-                ", IOSTtrades=" + IOSTtrades +
                 ", AIONtrades=" + AIONtrades +
-                ", PSGtrades=" + PSGtrades +
                 ", NANOtrades=" + NANOtrades +
-                ", FTMtrades=" + FTMtrades +
                 '}';
     }
 }
