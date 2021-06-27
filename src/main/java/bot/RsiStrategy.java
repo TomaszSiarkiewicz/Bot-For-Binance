@@ -6,8 +6,8 @@ import triggers.SellTrigger;
 
 public class RsiStrategy {
     private final IndicatorsProvider indicatorsProvider;
-    private String result = null;
     private final Pairs pair;
+    private String result = null;
 
 
     public RsiStrategy(Pairs pair, BinanceDataRepository binanceDataRepository, CurrentPriceProvider currentPriceProvider) {
@@ -16,6 +16,7 @@ public class RsiStrategy {
     }
 
     private void decisionMaker() {
+        System.out.print("rsi = " + getRsiValue());
         int lastTic = indicatorsProvider.getIndicators().size() - 1;
         if (BuyTrigger.buy(indicatorsProvider.getIndicators(), BotConstant.RSI_BUY, lastTic)) {
             result = "buy";
@@ -29,11 +30,12 @@ public class RsiStrategy {
     public Pairs getPair() {
         return pair;
     }
+
     public float getRsiValue() {
-        return indicatorsProvider.getIndicators().get(indicatorsProvider.getIndicators().size()-1).getRsi();
+        return indicatorsProvider.getIndicators().get(indicatorsProvider.getIndicators().size() - 1).getRsi();
     }
 
-    public String getResult(){
+    public String getResult() {
         decisionMaker();
         return result;
     }

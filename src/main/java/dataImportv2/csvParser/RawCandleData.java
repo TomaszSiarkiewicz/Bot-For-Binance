@@ -1,77 +1,39 @@
-package dataImport.csvParser;
+package dataImportv2.csvParser;
+
+import com.opencsv.bean.CsvBindByPosition;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
-public class CandleData {
-    ZonedDateTime openTime;
+public class RawCandleData {
+
+    @CsvBindByPosition(position = 0)
+    Long openTime;
+    @CsvBindByPosition(position = 1)
     BigDecimal open;
+    @CsvBindByPosition(position = 2)
     BigDecimal high;
+    @CsvBindByPosition(position = 3)
     BigDecimal low;
+    @CsvBindByPosition(position = 4)
     BigDecimal close;
+    @CsvBindByPosition(position = 5)
     BigDecimal volume;
-    ZonedDateTime closeTime;
+    @CsvBindByPosition(position = 6)
+    Long closeTime;
+    @CsvBindByPosition(position = 7)
     BigDecimal QuoteAssetVolume;
+    @CsvBindByPosition(position = 8)
     int NumberOfTrades;
+    @CsvBindByPosition(position = 9)
     BigDecimal TakerBuyBaseAssetVolume;
+    @CsvBindByPosition(position = 10)
     BigDecimal TakerBuyQuoteAssetVolume;
+    @CsvBindByPosition(position = 11)
     int ignore;
 
-    protected CandleData() {
-    }
 
 
-
-    public void setOpenTime(ZonedDateTime openTime) {
-        this.openTime = openTime;
-    }
-
-    public void setOpen(BigDecimal open) {
-        this.open = open;
-    }
-
-    public void setHigh(BigDecimal high) {
-        this.high = high;
-    }
-
-    public void setLow(BigDecimal low) {
-        this.low = low;
-    }
-
-    public void setClose(BigDecimal close) {
-        this.close = close;
-    }
-
-    public void setVolume(BigDecimal volume) {
-        this.volume = volume;
-    }
-
-    public void setCloseTime(ZonedDateTime closeTime) {
-        this.closeTime = closeTime;
-    }
-
-    public void setQuoteAssetVolume(BigDecimal quoteAssetVolume) {
-        QuoteAssetVolume = quoteAssetVolume;
-    }
-
-    public void setNumberOfTrades(int numberOfTrades) {
-        NumberOfTrades = numberOfTrades;
-    }
-
-    public void setTakerBuyBaseAssetVolume(BigDecimal takerBuyBaseAssetVolume) {
-        TakerBuyBaseAssetVolume = takerBuyBaseAssetVolume;
-    }
-
-    public void setTakerBuyQuoteAssetVolume(BigDecimal takerBuyQuoteAssetVolume) {
-        TakerBuyQuoteAssetVolume = takerBuyQuoteAssetVolume;
-    }
-
-    public void setIgnore(int ignore) {
-        this.ignore = ignore;
-    }
-
-    public ZonedDateTime getOpenTime() {
+    public Long getOpenTime() {
         return openTime;
     }
 
@@ -95,7 +57,7 @@ public class CandleData {
         return volume;
     }
 
-    public ZonedDateTime getCloseTime() {
+    public Long getCloseTime() {
         return closeTime;
     }
 
@@ -121,7 +83,7 @@ public class CandleData {
 
     @Override
     public String toString() {
-        return "CandleData{" +
+        return "RawCandleData{" +
                 "openTime=" + openTime +
                 ", open=" + open +
                 ", high=" + high +

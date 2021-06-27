@@ -40,7 +40,7 @@ public class MacdBot {
 
 
             //            aion
-            if (mapAion.containsKey(time)) {
+            if (mapAion.containsKey(time) && !tradingAion && !tradingNano) {
                 if (mapAion.get(time) && !tradingNano) {
                     buyPrice = pcAion.getClose();
                     tradingAion = true;
@@ -62,7 +62,7 @@ public class MacdBot {
             }
 
             //          nano
-            if (mapNano.containsKey(time)) {
+            if (mapNano.containsKey(time) && !tradingNano && !tradingAion) {
                 if (mapNano.get(time) && !tradingAion) {
                     buyPrice = pcNano.getClose();
                     tradingNano = true;
@@ -82,8 +82,6 @@ public class MacdBot {
                     System.out.println("wallet: " + wallet + " || profit: " + profit);
                 }
             }
-
-
 
 
             wallet = wallet.divide(BigDecimal.valueOf(1), 4, RoundingMode.HALF_UP);

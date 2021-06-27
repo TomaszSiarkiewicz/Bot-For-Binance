@@ -24,11 +24,29 @@ public class AIONUSDT_5minCandle extends Pair_Candle {
     @Column( precision = 19, scale = 8)
     private BigDecimal volume;
     private ZonedDateTime closeTime;
-    private BigDecimal QuoteAssetVolume;
-    private int NumberOfTrades;
-    private BigDecimal TakerBuyBaseAssetVolume;
-    private BigDecimal TakerBuyQuoteAssetVolume;
+    private BigDecimal quoteAssetVolume;
+    private int numberOfTrades;
+    private BigDecimal takerBuyBaseAssetVolume;
+    private BigDecimal takerBuyQuoteAssetVolume;
     private int ignore;
+
+    public AIONUSDT_5minCandle() {
+    }
+
+    public AIONUSDT_5minCandle(Pair_Candle pc) {
+        openTime = pc.getOpenTime();
+        open = pc.getOpen();
+        high = pc.getHigh();
+        low = pc.getLow();
+        close = pc.getClose();
+        volume = pc.getVolume();
+        closeTime = pc.getCloseTime();
+        quoteAssetVolume = pc.getQuoteAssetVolume();
+        numberOfTrades = pc.getNumberOfTrades();
+        takerBuyBaseAssetVolume = pc.getTakerBuyBaseAssetVolume();
+        takerBuyQuoteAssetVolume = pc.getTakerBuyQuoteAssetVolume();
+        ignore = pc.getIgnore();
+    }
 
     public long getId() {
         return id;
@@ -94,36 +112,40 @@ public class AIONUSDT_5minCandle extends Pair_Candle {
         this.closeTime = closeTime;
     }
 
+    @Override
     public BigDecimal getQuoteAssetVolume() {
-        return QuoteAssetVolume;
+        return quoteAssetVolume;
     }
 
+    @Override
     public void setQuoteAssetVolume(BigDecimal quoteAssetVolume) {
-        QuoteAssetVolume = quoteAssetVolume;
+        this.quoteAssetVolume = quoteAssetVolume;
     }
 
+    @Override
     public int getNumberOfTrades() {
-        return NumberOfTrades;
+        return numberOfTrades;
     }
 
+    @Override
     public void setNumberOfTrades(int numberOfTrades) {
-        NumberOfTrades = numberOfTrades;
+        this.numberOfTrades = numberOfTrades;
     }
 
     public BigDecimal getTakerBuyBaseAssetVolume() {
-        return TakerBuyBaseAssetVolume;
+        return takerBuyBaseAssetVolume;
     }
 
     public void setTakerBuyBaseAssetVolume(BigDecimal takerBuyBaseAssetVolume) {
-        TakerBuyBaseAssetVolume = takerBuyBaseAssetVolume;
+        this.takerBuyBaseAssetVolume = takerBuyBaseAssetVolume;
     }
 
     public BigDecimal getTakerBuyQuoteAssetVolume() {
-        return TakerBuyQuoteAssetVolume;
+        return takerBuyQuoteAssetVolume;
     }
 
     public void setTakerBuyQuoteAssetVolume(BigDecimal takerBuyQuoteAssetVolume) {
-        TakerBuyQuoteAssetVolume = takerBuyQuoteAssetVolume;
+        this.takerBuyQuoteAssetVolume = takerBuyQuoteAssetVolume;
     }
 
     public int getIgnore() {
@@ -145,10 +167,10 @@ public class AIONUSDT_5minCandle extends Pair_Candle {
                 ", close=" + close +
                 ", volume=" + volume +
                 ", closeTime=" + closeTime +
-                ", QuoteAssetVolume=" + QuoteAssetVolume +
-                ", NumberOfTrades=" + NumberOfTrades +
-                ", TakerBuyBaseAssetVolume=" + TakerBuyBaseAssetVolume +
-                ", TakerBuyQuoteAssetVolume=" + TakerBuyQuoteAssetVolume +
+                ", quoteAssetVolume=" + quoteAssetVolume +
+                ", numberOfTrades=" + numberOfTrades +
+                ", takerBuyBaseAssetVolume=" + takerBuyBaseAssetVolume +
+                ", takerBuyQuoteAssetVolume=" + takerBuyQuoteAssetVolume +
                 ", ignore=" + ignore +
                 '}';
     }

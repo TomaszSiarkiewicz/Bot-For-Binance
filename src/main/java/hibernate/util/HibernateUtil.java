@@ -1,13 +1,11 @@
 package hibernate.util;
 
-import hibernate.entities.aionusdt.AIONUSDT_1minCandle;
+
 import hibernate.entities.aionusdt.AIONUSDT_5minCandle;
-import hibernate.entities.btcusdt.*;
-import hibernate.entities.ftm.FTMUSDT_5minCandle;
-import hibernate.entities.iost.IOSTUSDT_5minCandle;
 import hibernate.entities.nano.NANOUSDT_5minCandle;
-import hibernate.entities.psgusdt.PSGUSDT_5minCandle;
-import hibernate.entities.tics.*;
+
+import hibernate.entities.tics.Tic5aion;
+import hibernate.entities.tics.Tic5nano;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
@@ -45,26 +43,10 @@ public class HibernateUtil {
 
 
                 // annotated classes
-                configuration.addAnnotatedClass(AIONUSDT_1minCandle.class);
                 configuration.addAnnotatedClass(AIONUSDT_5minCandle.class);
-                configuration.addAnnotatedClass(BTCUSDT_1minCandle.class);
-                configuration.addAnnotatedClass(BTCUSDT_3minCandle.class);
-                configuration.addAnnotatedClass(BTCUSDT_5minCandle.class);
-                configuration.addAnnotatedClass(BTCUSDT_15minCandle.class);
-                configuration.addAnnotatedClass(BTCUSDT_30minCandle.class);
-                configuration.addAnnotatedClass(BTCUSDT_1hCandle.class);
-                configuration.addAnnotatedClass(PSGUSDT_5minCandle.class);
-                configuration.addAnnotatedClass(IOSTUSDT_5minCandle.class);
                 configuration.addAnnotatedClass(NANOUSDT_5minCandle.class);
-                configuration.addAnnotatedClass(FTMUSDT_5minCandle.class);
-                configuration.addAnnotatedClass(Tic15.class);
-                configuration.addAnnotatedClass(Tic5btc.class);
                 configuration.addAnnotatedClass(Tic5aion.class);
-                configuration.addAnnotatedClass(Tic5psg.class);
-                configuration.addAnnotatedClass(Tic5iost.class);
                 configuration.addAnnotatedClass(Tic5nano.class);
-                configuration.addAnnotatedClass(Tic5ftm.class);
-                configuration.addAnnotatedClass(Tic30.class);
 
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()

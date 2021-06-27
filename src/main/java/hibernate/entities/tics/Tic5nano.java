@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 @Entity
@@ -15,6 +16,7 @@ public class Tic5nano extends Tic{
     float rsi;
     float macd;
     float emashort;
+    BigDecimal price;
 
     public ZonedDateTime getCloseTime() {
         return closeTime;
@@ -50,11 +52,12 @@ public class Tic5nano extends Tic{
 
     @Override
     public String toString() {
-        return "Tic{" +
-                "closeTime=" + closeTime +
+        return "Tic5nano{" +
+                ", closeTime=" + closeTime +
                 ", rsi=" + rsi +
                 ", macd=" + macd +
                 ", emashort=" + emashort +
+                ", price=" + price +
                 '}';
     }
 }

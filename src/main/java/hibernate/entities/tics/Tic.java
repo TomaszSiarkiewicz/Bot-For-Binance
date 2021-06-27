@@ -1,5 +1,6 @@
 package hibernate.entities.tics;
 
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 
@@ -9,6 +10,15 @@ public class Tic {
     float rsi;
     float macd;
     float emashort;
+    BigDecimal price;
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
     public ZonedDateTime getCloseTime() {
         return closeTime;
@@ -45,10 +55,11 @@ public class Tic {
     @Override
     public String toString() {
         return "Tic{" +
-                "closeTime=" + closeTime +
+                ", closeTime=" + closeTime +
                 ", rsi=" + rsi +
                 ", macd=" + macd +
                 ", emashort=" + emashort +
+                ", price=" + price +
                 '}';
     }
 }

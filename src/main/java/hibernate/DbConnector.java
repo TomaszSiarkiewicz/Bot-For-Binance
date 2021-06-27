@@ -29,51 +29,6 @@ public class DbConnector {
         }
     }
 
-    public void putIndicatorsInDatabaset15(List<Tic15> list) {
-
-        try {
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            for (Object pair : list) {
-                session.save(pair);
-            }
-            session.getTransaction().commit();
-            session.close();
-//            sessionFactory.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    public void putIndicatorsInDatabaset5Psg(List<Tic5psg> list) {
-
-        try {
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            for (Object pair : list) {
-                session.save(pair);
-            }
-            session.getTransaction().commit();
-            session.close();
-//            sessionFactory.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    public void putIndicatorsInDatabaset5Iost(List<Tic5iost> list) {
-
-        try {
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            for (Object pair : list) {
-                session.save(pair);
-            }
-            session.getTransaction().commit();
-            session.close();
-//            sessionFactory.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
     public void putIndicatorsInDatabaset5Nano(List<Tic5nano> list) {
 
         try {
@@ -90,21 +45,6 @@ public class DbConnector {
         }
     }
 
-    public void putIndicatorsInDatabaset5(List<Tic5btc> list) {
-
-        try {
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            for (Object pair : list) {
-                session.save(pair);
-            }
-            session.getTransaction().commit();
-            session.close();
-//            sessionFactory.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void putIndicatorsInDatabaset5Aion(List<Tic5aion> list) {
 
@@ -121,37 +61,7 @@ public class DbConnector {
             e.printStackTrace();
         }
     }
-    public void putIndicatorsInDatabaset5Ftm(List<Tic5ftm> list) {
 
-        try {
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            for (Object pair : list) {
-                session.save(pair);
-            }
-            session.getTransaction().commit();
-            session.close();
-//            sessionFactory.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void putIndicatorsInDatabaset30(List<Tic30> list) {
-
-        try {
-            Session session = sessionFactory.openSession();
-            session.beginTransaction();
-            for (Object pair : list) {
-                session.save(pair);
-            }
-            session.getTransaction().commit();
-            session.close();
-//            sessionFactory.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public List<Pair_Candle> getPairCandle5minBTCData() {
         Session session = sessionFactory.openSession();

@@ -7,7 +7,6 @@ import java.time.ZonedDateTime;
 public class Pair_Candle {
     private long id;
     private ZonedDateTime openTime;
-
     private BigDecimal open;
     private BigDecimal high;
     private BigDecimal low;

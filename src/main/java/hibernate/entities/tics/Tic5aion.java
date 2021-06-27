@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
 @Entity
@@ -15,6 +16,15 @@ public class Tic5aion extends Tic{
     float rsi;
     float macd;
     float emashort;
+    BigDecimal price;
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
 
     public ZonedDateTime getCloseTime() {
         return closeTime;
@@ -50,11 +60,12 @@ public class Tic5aion extends Tic{
 
     @Override
     public String toString() {
-        return "Tic{" +
-                "closeTime=" + closeTime +
+        return "Tic5aion{" +
+                ", closeTime=" + closeTime +
                 ", rsi=" + rsi +
                 ", macd=" + macd +
                 ", emashort=" + emashort +
+                ", price=" + price +
                 '}';
     }
 }
