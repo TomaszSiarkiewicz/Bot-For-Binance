@@ -3,7 +3,6 @@ package bot;
 import api.client.model.market.Candlestick;
 import enums.Pairs;
 import hibernate.entities.tics.Tic;
-import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.List;
 

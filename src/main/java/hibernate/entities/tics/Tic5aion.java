@@ -1,9 +1,6 @@
 package hibernate.entities.tics;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
 
@@ -16,6 +13,7 @@ public class Tic5aion extends Tic{
     float rsi;
     float macd;
     float emashort;
+    @Column(precision = 14, scale = 8)
     BigDecimal price;
 
     public BigDecimal getPrice() {

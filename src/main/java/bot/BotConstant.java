@@ -1,9 +1,7 @@
 package bot;
 
 import enums.Pairs;
-import javassist.compiler.ast.Pair;
 
-import java.util.LinkedList;
 import java.util.List;
 
 public class BotConstant {

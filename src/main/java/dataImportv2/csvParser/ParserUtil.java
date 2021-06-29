@@ -12,17 +12,18 @@ public class ParserUtil {
     protected static Pair_Candle migrate(RawCandleData rawCandleData) {
         Pair_Candle candleData = new Pair_Candle();
         candleData.setClose(rawCandleData.getClose());
-        candleData.setCloseTime(convertTime(rawCandleData.getCloseTime()));
+        candleData.setCloseTime(rawCandleData.getCloseTime());
         candleData.setHigh(rawCandleData.getHigh());
         candleData.setIgnore(rawCandleData.getIgnore());
         candleData.setLow(rawCandleData.getLow());
         candleData.setNumberOfTrades(rawCandleData.getNumberOfTrades());
-        candleData.setOpenTime(convertTime(rawCandleData.getOpenTime()));
+        candleData.setOpenTime(rawCandleData.getOpenTime());
         candleData.setOpen(rawCandleData.getOpen());
         candleData.setVolume(rawCandleData.getVolume());
         candleData.setQuoteAssetVolume(rawCandleData.getQuoteAssetVolume());
         candleData.setTakerBuyBaseAssetVolume(rawCandleData.getTakerBuyBaseAssetVolume());
         candleData.setTakerBuyQuoteAssetVolume(rawCandleData.getTakerBuyQuoteAssetVolume());
+
         return candleData;
     }
 

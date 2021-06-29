@@ -9,6 +9,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+
+
 /**
  * generate() returns URL for specified zip file
  */
@@ -22,7 +24,7 @@ public class DownloadUtility {
         try {
             Files.copy(new URL(url).openStream(), Paths.get(ImportConstants.ZIP_FILE_NAME), StandardCopyOption.REPLACE_EXISTING);
             return true;
-        } catch (IOException ignored) {
+        } catch (IOException e) {
             return false;
         }
     }

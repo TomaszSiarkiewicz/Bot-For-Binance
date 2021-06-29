@@ -45,7 +45,7 @@ public class CandleDataProvider implements Runnable {
     }
 
     private void setNextUpdate() {
-       long previousUpdate = candles.get(candles.size() - 2).getCloseTime();
+        long previousUpdate = candles.get(candles.size() - 2).getCloseTime();
         nextUpdate = LocalDateTime.ofInstant(Instant.ofEpochMilli(previousUpdate), TimeZone
                 .getDefault().toZoneId()).plusMinutes(10);
 

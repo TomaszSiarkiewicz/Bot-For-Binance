@@ -29,8 +29,7 @@ public class MacdBot {
         boolean tradingAion = false;
         boolean tradingNano = false;
 
-        ZonedDateTime time = aion.get(0).getCloseTime();
-        System.out.println(time.getDayOfMonth() + " " + time.getHour() + " " + time.getMinute());
+        Long time = aion.get(0).getCloseTime();
         for (int i = 0; i < aion.size(); i++) {
             Pair_Candle pcAion = aion.get(i);
             Pair_Candle pcNano = nano.get(i);

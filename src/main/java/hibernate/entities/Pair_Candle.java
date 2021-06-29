@@ -6,13 +6,13 @@ import java.time.ZonedDateTime;
 
 public class Pair_Candle {
     private long id;
-    private ZonedDateTime openTime;
+    private long openTime;
     private BigDecimal open;
     private BigDecimal high;
     private BigDecimal low;
     private BigDecimal close;
     private BigDecimal volume;
-    private ZonedDateTime closeTime;
+    private long closeTime;
     private BigDecimal QuoteAssetVolume;
     private int NumberOfTrades;
     private BigDecimal TakerBuyBaseAssetVolume;
@@ -27,12 +27,20 @@ public class Pair_Candle {
         this.id = id;
     }
 
-    public ZonedDateTime getOpenTime() {
+    public long getOpenTime() {
         return openTime;
     }
 
-    public void setOpenTime(ZonedDateTime openTime) {
+    public void setOpenTime(long openTime) {
         this.openTime = openTime;
+    }
+
+    public long getCloseTime() {
+        return closeTime;
+    }
+
+    public void setCloseTime(long closeTime) {
+        this.closeTime = closeTime;
     }
 
     public BigDecimal getOpen() {
@@ -75,13 +83,6 @@ public class Pair_Candle {
         this.volume = volume;
     }
 
-    public ZonedDateTime getCloseTime() {
-        return closeTime;
-    }
-
-    public void setCloseTime(ZonedDateTime closeTime) {
-        this.closeTime = closeTime;
-    }
 
     public BigDecimal getQuoteAssetVolume() {
         return QuoteAssetVolume;

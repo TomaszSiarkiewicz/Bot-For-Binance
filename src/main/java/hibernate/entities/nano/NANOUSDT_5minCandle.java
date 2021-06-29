@@ -12,18 +12,18 @@ public class NANOUSDT_5minCandle extends Pair_Candle {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private ZonedDateTime openTime;
-    @Column( precision = 14, scale = 8)
+    private long openTime;
+    @Column(precision = 14, scale = 8)
     private BigDecimal open;
-    @Column( precision = 14, scale = 8)
+    @Column(precision = 14, scale = 8)
     private BigDecimal high;
-    @Column( precision = 14, scale = 8)
+    @Column(precision = 14, scale = 8)
     private BigDecimal low;
-    @Column( precision = 14, scale = 8)
+    @Column(precision = 14, scale = 8)
     private BigDecimal close;
-    @Column( precision = 19, scale = 8)
+    @Column(precision = 19, scale = 8)
     private BigDecimal volume;
-    private ZonedDateTime closeTime;
+    private long closeTime;
     private BigDecimal QuoteAssetVolume;
     private int NumberOfTrades;
     private BigDecimal TakerBuyBaseAssetVolume;
@@ -38,13 +38,6 @@ public class NANOUSDT_5minCandle extends Pair_Candle {
         this.id = id;
     }
 
-    public ZonedDateTime getOpenTime() {
-        return openTime;
-    }
-
-    public void setOpenTime(ZonedDateTime openTime) {
-        this.openTime = openTime;
-    }
 
     public BigDecimal getOpen() {
         return open;
@@ -86,11 +79,21 @@ public class NANOUSDT_5minCandle extends Pair_Candle {
         this.volume = volume;
     }
 
-    public ZonedDateTime getCloseTime() {
+    @Override
+    public long getOpenTime() {
+        return openTime;
+    }
+
+    public void setOpenTime(long openTime) {
+        this.openTime = openTime;
+    }
+
+    @Override
+    public long getCloseTime() {
         return closeTime;
     }
 
-    public void setCloseTime(ZonedDateTime closeTime) {
+    public void setCloseTime(long closeTime) {
         this.closeTime = closeTime;
     }
 
