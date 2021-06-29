@@ -16,6 +16,7 @@ import org.ta4j.core.indicators.MACDIndicator;
 import org.ta4j.core.indicators.RSIIndicator;
 import org.ta4j.core.indicators.helpers.ClosePriceIndicator;
 
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -60,6 +61,7 @@ public class BinanceDataRepository {
             tic.setMacd(macd.getValue(i).floatValue());
             tic.setEmashort(emaShort.getValue(i).floatValue());
             tic.setCloseTime(series.getBar(i).getEndTime());
+            tic.setPrice(new BigDecimal(series.getBar(i).getClosePrice().toString()));
             tics.add(tic);
         }
         return tics;

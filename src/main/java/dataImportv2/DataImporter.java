@@ -31,7 +31,8 @@ public class DataImporter {
         while (succesfulDownload && daysDownloaded <= daysToDownload) { // checks if last download was successful, if not there is no older data
             String date = LocalDate.now().minusDays(daysDownloaded + 2).toString(); //string with date for url generator
             String url = DownloadUtility.generateURL(pair, interval, date);
-            succesfulDownload = DownloadUtility.download(url);  // downloads zip and sets succesfulDownload variable
+            succesfulDownload = DownloadUtility.download(url);// downloads zip and sets succesfulDownload variable
+            if (!succesfulDownload) break;
             new FilesUnziper().unzipFiles();
             list = new CsvParser().getPair_candleList();
             IndicatorsCalculator ic = new IndicatorsCalculator(list, interval, pair);

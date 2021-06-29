@@ -27,7 +27,6 @@ public class CandleDataProvider implements Runnable {
     public void run() {
         while (run) {
             if (LocalDateTime.now().isAfter(nextUpdate)) {
-                System.out.println(" ----CANDLE UPDATE---- ");
                 candles = binanceDataRepository.updatePairCandles(pair);
                 setNextUpdate();
             }

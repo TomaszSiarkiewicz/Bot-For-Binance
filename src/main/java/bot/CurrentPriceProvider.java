@@ -23,10 +23,9 @@ public class CurrentPriceProvider implements Runnable {
     @Override
     public void run() {
         while (run) {
-            System.out.println(" -----PRICE UPDATE----- ");
             symbolPrice = binanceDataRepository.currentPrices();
             try {
-                Thread.sleep(10000);
+                Thread.sleep(15000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -39,7 +38,8 @@ public class CurrentPriceProvider implements Runnable {
     }
 
     public BigDecimal getPrice(Pairs pair) {
-        return symbolPrice.stream().filter(i -> i.getSymbol().equals(pair.getName())).collect(Collectors.toList()).get(0).getPrice();
+        BigDecimal price = symbolPrice.stream().filter(i -> i.getSymbol().equals(pair.getName())).collect(Collectors.toList()).get(0).getPrice();
+        return price;
     }
 
     public void setRun(boolean run) {

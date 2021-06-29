@@ -5,12 +5,12 @@ import java.time.ZonedDateTime;
 
 
 public class Tic {
-    long id;
-    ZonedDateTime closeTime;
-    float rsi;
-    float macd;
-    float emashort;
-    BigDecimal price;
+    private long id;
+    private ZonedDateTime closeTime;
+    private float rsi;
+    private float macd;
+    private float emashort;
+    private BigDecimal price;
 
     public BigDecimal getPrice() {
         return price;
@@ -51,6 +51,7 @@ public class Tic {
     public void setEmashort(float emashort) {
         this.emashort = emashort;
     }
+
 
     @Override
     public String toString() {

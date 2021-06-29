@@ -33,4 +33,11 @@ public class IndicatorsProvider {
     private List<Tic> initData(Pairs pair, BinanceDataRepository dataRepository) {
         return dataRepository.getIndicators(dataRepository.updatePairCandles(pair));
     }
+
+    @Override
+    public String toString() {
+        return "IndicatorsProvider{" +
+                "indicators=" + indicators +
+                '}';
+    }
 }

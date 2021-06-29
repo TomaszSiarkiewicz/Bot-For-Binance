@@ -9,7 +9,10 @@ public class RsiTriggerBuy {
     public static boolean rsiBuy(List<Tic> indicators, int buyRsi, int ticnum) {
         float rsi = indicators.get(ticnum).getRsi();
         float previousrsi = indicators.get(ticnum - 2).getRsi();
-        return rsi < buyRsi || (previousrsi - rsi) > 7;
+        if (rsi < buyRsi) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
-//|| (previousrsi - rsi)> 30
