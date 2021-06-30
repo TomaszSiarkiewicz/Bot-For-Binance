@@ -4,6 +4,7 @@ import enums.Pairs;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.ZonedDateTime;
 
 public class Trade {
     private BigDecimal buyPrice;
@@ -12,9 +13,11 @@ public class Trade {
     private float rsiSell;
     private float macdSel;
     private float macdBuy;
-    private BigDecimal qty;
-    private Pairs pair;
     private BigDecimal profit;
+    private Pairs pair;
+    private BigDecimal amountInUsdt;
+    private ZonedDateTime openTime;
+    private ZonedDateTime closeTime;
 
     public Trade(RsiStrategy rsiStrategy) {
         int index = rsiStrategy.getIndicatorsProvider().getIndicators().size()-1;
@@ -22,6 +25,7 @@ public class Trade {
         rsiBuy = rsiStrategy.getIndicatorsProvider().getIndicators().get(index).getRsi();
         macdBuy = rsiStrategy.getMacdBuy();
         pair = rsiStrategy.getPair();
+        openTime = ZonedDateTime.now();
     }
     public Trade(RsiStrategy rsiStrategy, Trade trade){
         int index = rsiStrategy.getIndicatorsProvider().getIndicators().size()-1;
@@ -32,8 +36,9 @@ public class Trade {
         macdBuy = trade.getMacdBuy();
         macdSel = rsiStrategy.getIndicatorsProvider().getIndicators().get(index).getMacd();
         pair = trade.getPair();
-        profit = sellPrice.divide(buyPrice, 5, RoundingMode.HALF_UP);
-
+        amountInUsdt = trade.amountInUsdt;
+        closeTime = ZonedDateTime.now();
+        profit = sellPrice.divide(buyPrice, 10, RoundingMode.HALF_UP);
 
     }
 
@@ -85,14 +90,6 @@ public class Trade {
         this.macdBuy = macdBuy;
     }
 
-    public BigDecimal getQty() {
-        return qty;
-    }
-
-    public void setQty(BigDecimal qty) {
-        this.qty = qty;
-    }
-
     public Pairs getPair() {
         return pair;
     }
@@ -101,12 +98,24 @@ public class Trade {
         this.pair = pair;
     }
 
+    public BigDecimal getAmountInUsdt() {
+        return amountInUsdt;
+    }
+
+    public void setAmountInUsdt(BigDecimal amountInUsdt) {
+        this.amountInUsdt = amountInUsdt;
+    }
+
     public BigDecimal getProfit() {
         return profit;
     }
 
-    public void setProfit(BigDecimal profit) {
-        this.profit = profit;
+    public ZonedDateTime getOpenTime() {
+        return openTime;
+    }
+
+    public ZonedDateTime getCloseTime() {
+        return closeTime;
     }
 
     @Override
@@ -114,13 +123,15 @@ public class Trade {
         return "Trade{" +
                 "buyPrice=" + buyPrice +
                 ", sellPrice=" + sellPrice +
+                ", profit=" + profit +
                 ", rsiBuy=" + rsiBuy +
                 ", rsiSell=" + rsiSell +
                 ", macdSel=" + macdSel +
                 ", macdBuy=" + macdBuy +
-                ", qty=" + qty +
                 ", pair=" + pair +
-                ", profit=" + profit +
+                ", amountInUsdt=" + amountInUsdt +
+                ", openTime=" + openTime +
+                ", closeTime=" + closeTime +
                 '}';
     }
 }

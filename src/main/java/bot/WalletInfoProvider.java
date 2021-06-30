@@ -18,7 +18,6 @@ public class WalletInfoProvider implements Runnable {
     @Override
     public void run() {
         while (run) {
-            System.out.println(" ----WALLET UPDATE----");
             coinsInWallet = dataRepository.updateCoins();
             try {
                 Thread.sleep(5000);

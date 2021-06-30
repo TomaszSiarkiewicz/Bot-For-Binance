@@ -38,8 +38,7 @@ public class CurrentPriceProvider implements Runnable {
     }
 
     public BigDecimal getPrice(Pairs pair) {
-        BigDecimal price = symbolPrice.stream().filter(i -> i.getSymbol().equals(pair.getName())).collect(Collectors.toList()).get(0).getPrice();
-        return price;
+        return symbolPrice.stream().filter(i -> i.getSymbol().equals(pair.getName())).collect(Collectors.toList()).get(0).getPrice();
     }
 
     public void setRun(boolean run) {

@@ -5,13 +5,11 @@ import hibernate.entities.tics.Tic;
 import triggers.BuyTrigger;
 import triggers.SellTrigger;
 
-import java.math.BigDecimal;
-
 public class RsiStrategy {
     private final IndicatorsProvider indicatorsProvider;
     private final Pairs pair;
     private String result = null;
-    private float  macdBuy = 0;
+    private float macdBuy = 0;
 
 
     public RsiStrategy(Pairs pair, BinanceDataRepository binanceDataRepository, CurrentPriceProvider currentPriceProvider) {
@@ -19,16 +17,18 @@ public class RsiStrategy {
         this.pair = pair;
     }
 
-    private void decisionMaker() {
-
+    private void decisionMaker(boolean isBuyDecision) {
+        result = "null";
         int lastTic = indicatorsProvider.getIndicators().size() - 1;
-        if (BuyTrigger.buy(indicatorsProvider.getIndicators(), BotConstant.RSI_BUY, lastTic)) {
-            macdBuy = indicatorsProvider.getIndicators().get(lastTic).getMacd();
-            result = "buy";
-        } else if (!SellTrigger.sell(indicatorsProvider.getIndicators(), BotConstant.RSI_SELL, lastTic, macdBuy) ) {
-            result = "sell";
+        if (isBuyDecision) {
+            if (BuyTrigger.buy(indicatorsProvider.getIndicators(), BotConstant.RSI_BUY, lastTic)) {
+                macdBuy = indicatorsProvider.getIndicators().get(lastTic).getMacd();
+                result = "buy";
+            }
         } else {
-            result = "null";
+            if (SellTrigger.sell(indicatorsProvider.getIndicators(), BotConstant.RSI_SELL, lastTic, macdBuy)) {
+                result = "sell";
+            }
         }
     }
 
@@ -40,15 +40,16 @@ public class RsiStrategy {
         return indicatorsProvider.getIndicators().get(indicatorsProvider.getIndicators().size() - 1).getRsi();
     }
 
-    public String getResult() {
-        decisionMaker();
+    public String getResult(boolean isBuyDecision) {
+        decisionMaker(isBuyDecision);
         return result;
     }
 
     public float getMacdBuy() {
         return macdBuy;
     }
-    public Tic getLastIndicator(){
+
+    public Tic getLastIndicator() {
         return indicatorsProvider.getIndicators().get(indicatorsProvider.getIndicators().size() - 1);
     }
 
