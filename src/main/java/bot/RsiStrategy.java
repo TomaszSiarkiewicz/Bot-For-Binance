@@ -2,8 +2,8 @@ package bot;
 
 import enums.Pairs;
 import hibernate.entities.tics.Tic;
-import triggers.BuyTrigger;
-import triggers.SellTrigger;
+import tradeTriggers.BuyTrigger;
+import tradeTriggers.SellTrigger;
 
 public class RsiStrategy {
     private final IndicatorsProvider indicatorsProvider;

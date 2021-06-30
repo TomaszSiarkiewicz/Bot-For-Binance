@@ -1,8 +1,8 @@
 package testbotv2;
 
 import hibernate.entities.tics.Tic;
-import triggers.BuyTrigger;
-import triggers.SellTrigger;
+import tradeTriggers.BuyTrigger;
+import tradeTriggers.SellTrigger;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

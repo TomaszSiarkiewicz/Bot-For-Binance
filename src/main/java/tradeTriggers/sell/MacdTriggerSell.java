@@ -1,8 +1,7 @@
-package triggers.sell;
+package tradeTriggers.sell;
 
 import hibernate.entities.tics.Tic;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 public class MacdTriggerSell {

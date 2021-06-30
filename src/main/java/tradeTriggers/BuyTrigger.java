@@ -1,8 +1,8 @@
-package triggers;
+package tradeTriggers;
 
 import hibernate.entities.tics.Tic;
-import triggers.buy.MacdTriggerBuy;
-import triggers.buy.RsiTriggerBuy;
+import tradeTriggers.buy.MacdTriggerBuy;
+import tradeTriggers.buy.RsiTriggerBuy;
 
 import java.util.List;
 

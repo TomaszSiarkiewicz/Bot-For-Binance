@@ -1,4 +1,4 @@
-package triggers.sell;
+package tradeTriggers.sell;
 
 import hibernate.entities.tics.Tic;
 

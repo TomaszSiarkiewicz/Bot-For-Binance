@@ -1,10 +1,9 @@
-package triggers;
+package tradeTriggers;
 
 import hibernate.entities.tics.Tic;
-import triggers.sell.MacdTriggerSell;
-import triggers.sell.RsiTriggerSell;
+import tradeTriggers.sell.MacdTriggerSell;
+import tradeTriggers.sell.RsiTriggerSell;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 /**

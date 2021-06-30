@@ -1,4 +1,4 @@
-package triggers.buy;
+package tradeTriggers.buy;
 
 import hibernate.entities.tics.Tic;
 

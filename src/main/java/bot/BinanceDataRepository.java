@@ -51,7 +51,7 @@ public class BinanceDataRepository {
         ClosePriceIndicator indicator = new ClosePriceIndicator(series);
         int maxIndex = indicator.getBarSeries().getEndIndex();
 
-        RSIIndicator rsi = new RSIIndicator(indicator, 30);
+        RSIIndicator rsi = new RSIIndicator(indicator, BotConstant.LONG_RSI_BARS);
         MACDIndicator macd = new MACDIndicator(rsi);
         EMAIndicator emaShort = new EMAIndicator(rsi, 9);
         List<Tic> tics = new ArrayList<>();
