@@ -19,6 +19,11 @@ public class Trade {
     private ZonedDateTime openTime;
     private ZonedDateTime closeTime;
 
+    public Trade(BigDecimal buyPrice, BigDecimal sellPrice) {
+        this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
+    }
+
     public Trade(RsiStrategy rsiStrategy) {
         int index = rsiStrategy.getIndicatorsProvider().getIndicators().size()-1;
         buyPrice = rsiStrategy.getIndicatorsProvider().getIndicators().get(index).getPrice();

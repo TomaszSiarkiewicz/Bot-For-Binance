@@ -16,6 +16,15 @@ public class Trader implements Runnable {
     private List<RsiStrategy> allCoinsStrategies;
     private long lastUpdate = ZonedDateTime.now().getNano();
     private boolean run = true;
+
+    public boolean isRun() {
+        return run;
+    }
+
+    public void setRun(boolean run) {
+        this.run = run;
+    }
+
     private boolean panic = false;
     private List<Trade> trades;
     private volatile BigDecimal walletUsdt = BigDecimal.ONE;
@@ -114,5 +123,14 @@ public class Trader implements Runnable {
 
     public BigDecimal getInvested() {
         return invested;
+    }
+    public boolean performPanic(){
+        // TODO implement panic
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

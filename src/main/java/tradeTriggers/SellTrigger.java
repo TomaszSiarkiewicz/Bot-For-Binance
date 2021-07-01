@@ -16,6 +16,6 @@ public class SellTrigger {
     public static boolean sell(List<Tic> indicators, int sellRsi, int ticnum, float macdBuy) {
 
         return MacdTriggerSell.macdsel(indicators, sellRsi, ticnum, macdBuy)
-                && RsiTriggerSell.rsiSell(indicators, sellRsi, ticnum);
+                || RsiTriggerSell.rsiSell(indicators, sellRsi, ticnum);
     }
 }
